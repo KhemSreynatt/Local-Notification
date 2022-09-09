@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:masmas_food_delivery/firebase_options.dart';
 import 'package:masmas_food_delivery/utils/helper/notification_helper.dart';
 
+import 'config/go_router/go_route.dart';
 import 'config/routes.gr.dart';
 
 Future<void> main() async {
@@ -34,13 +35,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return MaterialApp.router(
+    //   debugShowCheckedModeBanner: false,
+    //   routerDelegate: appRouter.delegate(
+    //     navigatorObservers: () =>
+    //         [FirebaseAnalyticsObserver(analytics: analytics)],
+    //   ),
+    //   routeInformationParser: appRouter.defaultRouteParser(),
+    // );
     return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerDelegate: appRouter.delegate(
-        navigatorObservers: () =>
-            [FirebaseAnalyticsObserver(analytics: analytics)],
-      ),
-      routeInformationParser: appRouter.defaultRouteParser(),
-    );
+        routeInformationParser: router.routeInformationParser,
+        routerDelegate: router.routerDelegate,
+        routeInformationProvider: router.routeInformationProvider);
   }
 }
