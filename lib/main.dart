@@ -5,8 +5,8 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
-import 'package:natt_z1fsc/firebase_options.dart';
-import 'package:natt_z1fsc/utils/helper/notification_helper.dart';
+import 'package:masmas_food_delivery/firebase_options.dart';
+import 'package:masmas_food_delivery/utils/helper/notification_helper.dart';
 
 import 'config/routes.gr.dart';
 

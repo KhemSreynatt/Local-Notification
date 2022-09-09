@@ -17,7 +17,7 @@ class FirebaseDynamicLinkHelper {
       uriPrefix: 'https://sreynatkhem.page.link',
       link: Uri.parse('https://cicapp.page.link/$path'),
       androidParameters: const AndroidParameters(
-        packageName: 'com.example.natt_z1fsc',
+        packageName: 'com.example.masmas_food_delivery',
         minimumVersion: 0,
       ),
       iosParameters: const IOSParameters(

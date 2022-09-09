@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "natt_z1fsc" "\0"
+            VALUE "FileDescription", "masmas_food_delivery" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "natt_z1fsc" "\0"
+            VALUE "InternalName", "masmas_food_delivery" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "natt_z1fsc.exe" "\0"
-            VALUE "ProductName", "natt_z1fsc" "\0"
+            VALUE "OriginalFilename", "masmas_food_delivery.exe" "\0"
+            VALUE "ProductName", "masmas_food_delivery" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

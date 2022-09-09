@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.natt_z1fsc">
+    package="com.example.masmas_food_delivery">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="natt_z1fsc"
+        android:label="masmas_food_delivery"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

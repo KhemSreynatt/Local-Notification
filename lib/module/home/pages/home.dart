@@ -71,15 +71,13 @@ class _HomePageState extends State<HomePage> {
                 NotificationDetails platformChannelSpecifics =
                     NotificationDetails(
                         android: androidPlatformChannelSpecifics);
-                flutterLocalNotificationsPlugin.show(
-                    0,
-                    'Som ABA \$5 mor b 🙏🙏',
-                    '003 465 994',
-                    platformChannelSpecifics,
+                flutterLocalNotificationsPlugin.show(0, 'Z1 Flexible Solution',
+                    'Flutter Developer', platformChannelSpecifics,
                     payload: 'item x');
               },
               child: const Text("Notification"),
             ),
+            Image.asset("assets/png/Logo.png"),
           ],
         ),
       ),
