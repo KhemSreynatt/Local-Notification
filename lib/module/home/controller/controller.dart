@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:masmas_food_delivery/module/home/model/model.dart';
+import 'package:masmas_food_delivery/module/home/model/model_res.dart';
 
 class ControllerBottomNavigetorBar extends GetxController {
   var isSelect = false.obs;
@@ -11,5 +12,38 @@ class ControllerBottomNavigetorBar extends GetxController {
     ModelBottom(svg: "assets/png/Profile.png", title: "Profile"),
     ModelBottom(svg: "assets/png/Buy.png", title: "Cart"),
     ModelBottom(svg: "assets/png/Chat.png", title: "Chart"),
+  ];
+
+  var listNearest = <ModelNearest>[
+    ModelNearest(
+      image: "assets/png/Resturant_Image.1png.png",
+      title: "Vegan Resto",
+      mins: "12 Mins",
+    ),
+    ModelNearest(
+      image: "assets/png/Restaurant.png",
+      title: "Healthy Food",
+      mins: "8 Mins",
+    ),
+    ModelNearest(
+      image: "assets/png/Resturant_Image.1png.png",
+      title: "Vegan Resto",
+      mins: "12 Mins",
+    ),
+    ModelNearest(
+      image: "assets/png/Restaurant.png",
+      title: "Healthy Food",
+      mins: "8 Mins",
+    ),
+    ModelNearest(
+      image: "assets/png/Resturant_Image.1png.png",
+      title: "Vegan Resto",
+      mins: "12 Mins",
+    ),
+    ModelNearest(
+      image: "assets/png/Restaurant.png",
+      title: "Healthy Food",
+      mins: "8 Mins",
+    ),
   ];
 }
