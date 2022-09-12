@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
     //   routeInformationParser: appRouter.defaultRouteParser(),
     // );
     return MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         routeInformationParser: router.routeInformationParser,
         routerDelegate: router.routerDelegate,
         routeInformationProvider: router.routeInformationProvider);

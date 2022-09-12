@@ -46,7 +46,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: color, title: const Text("Homework Firebase")),
+          automaticallyImplyLeading: false,
+          backgroundColor: color,
+          title: const Text("Homework Firebase")),
       body: Center(
         child: Column(
           children: [
