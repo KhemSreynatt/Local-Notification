@@ -15,6 +15,7 @@ class CustomButton extends StatefulWidget {
   final String? iconUrl;
   TextStyle? textStyle;
   final double? hight;
+  final Color? color;
   CustomButton({
     Key? key,
     this.title,
@@ -24,6 +25,7 @@ class CustomButton extends StatefulWidget {
     this.iconUrl,
     this.textStyle,
     this.hight,
+    this.color,
   }) : super(key: key);
 
   @override
@@ -42,7 +44,7 @@ class _CustomButtonState extends State<CustomButton> {
                 Radius.circular(24),
               ),
               padding: const EdgeInsets.symmetric(vertical: 15.0),
-              color: const Color(0xff53E88B),
+              color: widget.color,
               onPressed: widget.onPressed,
               child: Text(
                 widget.title!,
@@ -60,7 +62,7 @@ class _CustomButtonState extends State<CustomButton> {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(24)),
                         padding: const EdgeInsets.symmetric(vertical: 15.0),
-                        color: const Color(0xff53E88B),
+                        color: widget.color,
                         onPressed: widget.onPressed,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -126,7 +128,7 @@ class _CustomButtonState extends State<CustomButton> {
                                         Radius.circular(24)),
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 15.0),
-                                    color: const Color(0xff53E88B),
+                                    color: widget.color,
                                     onPressed: widget.onPressed,
                                     child: Row(
                                       mainAxisAlignment:
@@ -161,7 +163,7 @@ class _CustomButtonState extends State<CustomButton> {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(24)),
                             // padding: const EdgeInsets.symmetric(horizontal: 0),
-                            color: const Color(0xff53E88B),
+                            color: widget.color,
                             onPressed: widget.onPressed,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -225,7 +227,7 @@ class _CustomButtonState extends State<CustomButton> {
                                         Radius.circular(24)),
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 0),
-                                    color: const Color(0xff53E88B),
+                                    color: widget.color,
                                     onPressed: null,
                                     child: Text(
                                       widget.title!,
@@ -238,7 +240,7 @@ class _CustomButtonState extends State<CustomButton> {
                                         Radius.circular(24)),
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 0),
-                                    color: const Color(0xff53E88B),
+                                    color: widget.color,
                                     onPressed: null,
                                     child: Text(
                                       widget.title!,
