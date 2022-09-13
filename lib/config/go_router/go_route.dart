@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:masmas_food_delivery/module/splash_screen.dart';
 
-import '../../module/home/home_page.dart';
+import '../../module/home/screen/home_page.dart';
 
 final router = GoRouter(routes: [
   GoRoute(

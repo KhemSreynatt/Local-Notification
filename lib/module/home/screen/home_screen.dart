@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:masmas_food_delivery/module/home/controller/controller.dart';
+import 'package:masmas_food_delivery/module/home/screen/popular_res.dart';
 import 'package:masmas_food_delivery/module/home/widget/custom_bottomnavigertor.dart';
+import 'package:masmas_food_delivery/module/home/widget/custom_menu.dart';
 import 'package:masmas_food_delivery/module/home/widget/custom_nearest.dart';
+import 'package:masmas_food_delivery/module/home/widget/custom_textformfile.dart';
+import 'popular_nemu.dart';
 
-import 'widget/custom_textformfile.dart';
-
-class PopularRes extends StatelessWidget {
-  PopularRes({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
   final _controller = Get.put(ControllerBottomNavigetorBar());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-          padding: const EdgeInsets.all(20),
-          child: Column(children: [
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
             const SizedBox(
               height: 50,
             ),
@@ -89,17 +92,44 @@ class PopularRes extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Image.asset("assets/png/Promo_Advertising.png",
+                  fit: BoxFit.cover),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Nearest Restaurant",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => PopularRes()));
+                  },
+                  child: const Text(
+                    "View More",
+                    style: TextStyle(color: Color(0xffFF7C32), fontSize: 12),
+                  ),
+                )
+              ],
+            ),
             GridView.builder(
               padding: const EdgeInsets.only(top: 20),
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
-                childAspectRatio: 1 / 1.2,
+                childAspectRatio: 1 / 1.18,
                 crossAxisSpacing: 20,
                 mainAxisSpacing: 20,
               ),
-              itemCount: _controller.listNearest.length,
+              itemCount: 2,
               itemBuilder: ((context, index) {
                 return LayoutBuilder(builder:
                     (BuildContext context, BoxConstraints constraints) {
@@ -111,7 +141,46 @@ class PopularRes extends StatelessWidget {
                 });
               }),
             ),
-          ])),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Popular",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PopularMenuSceeen()));
+                  },
+                  child: const Text(
+                    "View More",
+                    style: TextStyle(color: Color(0xffFF7C32), fontSize: 12),
+                  ),
+                )
+              ],
+            ),
+            Column(
+              children: _controller.listMenu
+                  .asMap()
+                  .entries
+                  .map(
+                    (e) => e.key < 1
+                        ? CustomMenu(
+                            model: e.value,
+                          )
+                        : const SizedBox(),
+                  )
+                  .toList(),
+            )
+          ],
+        ),
+      ),
       bottomNavigationBar: Container(
         height: 72,
         margin: const EdgeInsets.only(bottom: 40, left: 10, right: 10),
