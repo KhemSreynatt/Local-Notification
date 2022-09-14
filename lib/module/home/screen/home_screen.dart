@@ -6,6 +6,8 @@ import 'package:masmas_food_delivery/module/home/widget/custom_bottomnavigertor.
 import 'package:masmas_food_delivery/module/home/widget/custom_menu.dart';
 import 'package:masmas_food_delivery/module/home/widget/custom_nearest.dart';
 import 'package:masmas_food_delivery/module/home/widget/custom_textformfile.dart';
+import '../../notification/screen/notification_screen.dart';
+import '../animation/screen.dart';
 import 'popular_nemu.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -34,25 +36,33 @@ class HomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Container(
-                  height: 45,
-                  width: 45,
-                  margin: const EdgeInsets.only(right: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        offset: const Offset(0, 1),
-                        spreadRadius: 1,
-                        blurRadius: 0,
-                      )
-                    ],
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(15),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NotificationScreen()));
+                  },
+                  child: Container(
+                    height: 45,
+                    width: 45,
+                    margin: const EdgeInsets.only(right: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          offset: const Offset(0, 1),
+                          spreadRadius: 1,
+                          blurRadius: 0,
+                        )
+                      ],
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(15),
+                      ),
                     ),
+                    child: Image.asset("assets/png/Icon_Notifiaction.png"),
                   ),
-                  child: Image.asset("assets/png/Icon_Notifiaction.png"),
                 ),
               ],
             ),
@@ -177,7 +187,22 @@ class HomeScreen extends StatelessWidget {
                         : const SizedBox(),
                   )
                   .toList(),
-            )
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ScreenAnimation()));
+              },
+              child: const Text(
+                "Go to Animation Screen",
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
           ],
         ),
       ),

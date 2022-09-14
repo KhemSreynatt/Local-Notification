@@ -28,7 +28,15 @@ class SplashScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 25),
+            Image.asset("assets/png/MasmasFood.png"),
+            const SizedBox(
+              height: 8,
+            ),
+            const Text(
+              "Dellever Favorite Food",
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+            ),
             // LoadingAnimationWidget.fourRotatingDots(
             //   color: Colors.white,
             //   size: 50,
