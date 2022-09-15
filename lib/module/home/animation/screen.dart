@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../splash_screen/onbording.dart';
+
 class ScreenAnimation extends StatefulWidget {
   const ScreenAnimation({Key? key}) : super(key: key);
 
@@ -67,27 +69,39 @@ class _ScreenAnimationState extends State<ScreenAnimation> {
           ),
           Expanded(
             child: AnimatedList(
-                key: _key,
-                initialItemCount: 0,
-                padding: const EdgeInsets.all(10),
-                itemBuilder: (context, index, animation) {
-                  return SizeTransition(
-                    sizeFactor: animation,
-                    key: UniqueKey(),
-                    child: Card(
-                      color: Colors.yellow,
-                      child: ListTile(
-                        title: Text(_item[index]),
-                        trailing: IconButton(
-                          onPressed: () {
-                            _removeItem(index);
-                          },
-                          icon: const Icon(Icons.delete),
-                        ),
+              key: _key,
+              initialItemCount: 0,
+              padding: const EdgeInsets.all(10),
+              itemBuilder: (context, index, animation) {
+                return SizeTransition(
+                  sizeFactor: animation,
+                  key: UniqueKey(),
+                  child: Card(
+                    color: Colors.yellow,
+                    child: ListTile(
+                      title: Text(
+                        _item[index],
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {
+                          _removeItem(index);
+                        },
+                        icon: const Icon(Icons.delete),
                       ),
                     ),
-                  );
-                }),
+                  ),
+                );
+              },
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const OnbordingScreen()));
+            },
+            child: const Text("onbording"),
           )
         ]),
       ),
