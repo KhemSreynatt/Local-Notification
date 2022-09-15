@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:masmas_food_delivery/module/home/widget/custom_botton.dart';
 import 'package:masmas_food_delivery/module/order/screen/confirm_order.dart';
@@ -253,6 +254,210 @@ class CustomCardMyOrder extends StatelessWidget {
   }
 }
 
+class CustomCardDelivery extends StatelessWidget {
+  final String? title;
+  final String? svg;
+  final String? place;
+  final GestureTapCallback? ontap;
+  final bool? isSetLocation;
+  final bool? isEdit;
+  const CustomCardDelivery({
+    super.key,
+    this.title,
+    this.svg,
+    this.place,
+    this.ontap,
+    this.isSetLocation = false,
+    this.isEdit = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: isSetLocation == false ? 120 : 143,
+      width: double.infinity,
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: const Color(0xff5A6CEA).withOpacity(0.07),
+          blurRadius: 20,
+          offset: const Offset(26, 12),
+        ),
+      ], borderRadius: BorderRadius.circular(22), color: Colors.white),
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text(
+                  title!,
+                  style: GoogleFonts.poppins(
+                      color: Colors.grey,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400),
+                ),
+                const Spacer(),
+                if (isEdit == true)
+                  GestureDetector(
+                    onTap: ontap,
+                    child: Text(
+                      'Edit',
+                      style: GoogleFonts.poppins(
+                          color: const Color(0xff15BE77),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 33,
+                  color: Colors.transparent,
+                  child: SvgPicture.asset(
+                    svg!,
+                    fit: BoxFit.none,
+                  ),
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        place!,
+                        style: GoogleFonts.poppins(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      if (isSetLocation == true)
+                        Text(
+                          'Set location',
+                          style: GoogleFonts.poppins(
+                              color: const Color(0xff15BE77),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
+                        )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomCardPayMent extends StatelessWidget {
+  const CustomCardPayMent(
+      {super.key,
+      this.svg,
+      this.title,
+      this.number,
+      this.disableRow = true,
+      this.ontap,
+      this.isSelect,
+      this.paymentModel});
+  final String? svg;
+  final String? title;
+  final String? number;
+  final bool? disableRow;
+  final bool? isSelect;
+  final PaymentModel? paymentModel;
+  final GestureTapCallback? ontap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: ontap,
+      child: Container(
+        height: disableRow == true ? 103 : 72,
+        width: double.infinity,
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0xff5A6CEA).withOpacity(0.07),
+                blurRadius: 20,
+                offset: const Offset(26, 12),
+              ),
+            ],
+            borderRadius: BorderRadius.circular(22),
+            color: isSelect == true ? Colors.white : const Color(0xffF6F6F6)),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
+          child: Column(
+            children: [
+              if (disableRow == true)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      paymentModel!.title!,
+                      style: GoogleFonts.poppins(
+                          color: Colors.grey,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    const Spacer(),
+                    Text(
+                      'Edit',
+                      style: GoogleFonts.poppins(
+                          color: const Color(0xff15BE77),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ],
+                ),
+              // const Spacer(),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 33,
+                    color: Colors.transparent,
+                    child: SvgPicture.asset(
+                      paymentModel!.svg!,
+                      fit: BoxFit.none,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  const Spacer(),
+                  Text(
+                    paymentModel!.number!,
+                    style: GoogleFonts.poppins(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class CardModel {
   final String? image;
   final String? title;
@@ -263,5 +468,28 @@ class CardModel {
     this.title,
     this.subTitle,
     this.amount,
+  });
+}
+
+class DeliverModel {
+  final String? svg;
+  final String? title;
+  final String? place;
+  DeliverModel({
+    this.svg,
+    this.place,
+    this.title,
+  });
+}
+
+class PaymentModel {
+  final String? title;
+  final String? svg;
+  final String? number;
+
+  PaymentModel({
+    this.svg,
+    this.title,
+    this.number,
   });
 }

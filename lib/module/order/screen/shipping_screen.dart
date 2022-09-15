@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:masmas_food_delivery/module/order/controller/controller.dart';
-import 'package:masmas_food_delivery/module/order/screen/shipping_screen.dart';
 import 'package:masmas_food_delivery/widgets/custom_card.dart';
 
-class ConfirmOrder extends StatelessWidget {
-  const ConfirmOrder({super.key});
+class ShippingScreen extends StatelessWidget {
+  const ShippingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final orderController = Get.put(OrderController());
-
     return Scaffold(
+      backgroundColor: const Color(0xfffefefe),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -47,11 +43,26 @@ class ConfirmOrder extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      "Confirm Order",
+                      'Shipping',
                       style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontSize: 25,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: FontWeight.w400),
+                    ),
+                    CustomCardDelivery(
+                      ontap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ShippingScreen(),
+                          ),
+                        );
+                      },
+                      title: 'Order Location',
+                      place: '4517 Washington Ave. Manchester, Kentucky 39495',
+                      svg: 'assets/svg/Icon Location.svg',
+                      isSetLocation: false,
+                      isEdit: false,
                     ),
                     const SizedBox(
                       height: 20,
@@ -68,8 +79,8 @@ class ConfirmOrder extends StatelessWidget {
                       title: 'Deliver To',
                       place: '4517 Washington Ave. Manchester, Kentucky 39495',
                       svg: 'assets/svg/Icon Location.svg',
-                      isSetLocation: false,
-                      isEdit: true,
+                      isSetLocation: true,
+                      isEdit: false,
                     ),
                     const SizedBox(
                       height: 20,
@@ -77,10 +88,6 @@ class ConfirmOrder extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-            const CustomCardMyOrder(),
-            const SizedBox(
-              height: 30,
             ),
           ],
         ),

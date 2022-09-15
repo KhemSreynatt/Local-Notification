@@ -56,56 +56,55 @@ class OrderDetails extends StatelessWidget {
                       children: orderController.cardList
                           .asMap()
                           .entries
-                          .map((e) => Padding(
-                                padding: const EdgeInsets.only(top: 20),
-                                child: Dismissible(
-                                  key:
-                                      ValueKey(orderController.cardList[e.key]),
-                                  background: Container(
-                                    padding: const EdgeInsets.only(
-                                        right: 20, top: 0),
-                                    alignment: Alignment.centerRight,
-                                    height: 105,
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(22),
-                                      color: const Color(0xffE86D28),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: const [
-                                        Icon(
-                                          Icons.delete,
-                                          color: Colors.white,
-                                          size: 20,
-                                        ),
-                                      ],
-                                    ),
+                          .map(
+                            (e) => Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Dismissible(
+                                key: ValueKey(orderController.cardList[e.key]),
+                                background: Container(
+                                  padding:
+                                      const EdgeInsets.only(right: 20, top: 0),
+                                  alignment: Alignment.centerRight,
+                                  height: 105,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(22),
+                                    color: const Color(0xffE86D28),
                                   ),
-                                  direction: DismissDirection.endToStart,
-                                  onDismissed: (DismissDirection direction) {
-                                    // orderController.cardList(e.value.id!);
-                                    orderController.cardList.removeAt(e.key);
-                                    orderController.update();
-                                  },
-                                  child: CustomCard(
-                                    cardModel: e.value,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: const [
+                                      Icon(
+                                        Icons.delete,
+                                        color: Colors.white,
+                                        size: 20,
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ))
+                                direction: DismissDirection.endToStart,
+                                onDismissed: (DismissDirection direction) {
+                                  orderController.cardList.removeAt(e.key);
+                                  orderController.update();
+                                },
+                                child: CustomCard(
+                                  cardModel: e.value,
+                                ),
+                              ),
+                            ),
+                          )
                           .toList(),
                     ),
                   ],
                 ),
-              ),
+              ), 
             ),
             const CustomCardMyOrder(),
             const SizedBox(
               height: 30,
             ),
           ],
-        ),
+        ),   
       ),
     );
   }
