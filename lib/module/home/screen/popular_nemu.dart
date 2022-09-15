@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:masmas_food_delivery/module/home/controller/controller.dart';
 import 'package:masmas_food_delivery/module/home/widget/custom_bottomnavigertor.dart';
-import 'package:masmas_food_delivery/module/home/widget/custom_nearest.dart';
+import 'package:masmas_food_delivery/module/home/widget/custom_menu.dart';
 import 'package:masmas_food_delivery/module/home/widget/custom_textformfile.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
+class PopularMenuSceeen extends StatelessWidget {
+  PopularMenuSceeen({Key? key}) : super(key: key);
   final _controller = Get.put(ControllerBottomNavigetorBar());
   @override
   Widget build(BuildContext context) {
@@ -39,10 +39,11 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          offset: const Offset(0, 1),
-                          spreadRadius: 1,
-                          blurRadius: 0)
+                        color: Colors.grey.withOpacity(0.2),
+                        offset: const Offset(0, 1),
+                        spreadRadius: 1,
+                        blurRadius: 0,
+                      )
                     ],
                     borderRadius: const BorderRadius.all(
                       Radius.circular(15),
@@ -88,54 +89,37 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Image.asset("assets/png/Promo_Advertising.png",
-                  fit: BoxFit.cover),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
-                  "Nearest Restaurant",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "View More",
-                  style: TextStyle(color: Color(0xffFF7C32), fontSize: 12),
-                )
-              ],
-            ),
-            // const SizedBox(
-            //   height: 20,
+            Column(
+              children: _controller.listMenu
+                  .asMap()
+                  .entries
+                  .map((e) => CustomMenu(
+                        model: e.value,
+                      ))
+                  .toList(),
+            )
+            // GridView.builder(
+            //   padding: const EdgeInsets.only(top: 20),
+            //   physics: const NeverScrollableScrollPhysics(),
+            //   shrinkWrap: true,
+            //   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            //     maxCrossAxisExtent: 200,
+            //     childAspectRatio: 1 / 1.2,
+            //     crossAxisSpacing: 20,
+            //     mainAxisSpacing: 20,
+            //   ),
+            //   itemCount: _controller.listNearest.length,
+            //   itemBuilder: ((context, index) {
+            //     return LayoutBuilder(builder:
+            //         (BuildContext context, BoxConstraints constraints) {
+            //       return CustomNearest(
+            //         model: _controller.listNearest[index],
+            //         height: constraints.maxHeight,
+            //         width: constraints.maxWidth,
+            //       );
+            //     });
+            //   }),
             // ),
-            // const Text("hiii")
-
-            GridView.builder(
-              // padding: const EdgeInsets.all(20),
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 230,
-                childAspectRatio: 1 / 1.2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
-              ),
-              itemCount: _controller.listNearest.length,
-              itemBuilder: ((context, index) {
-                return LayoutBuilder(builder:
-                    (BuildContext context, BoxConstraints constraints) {
-                  return CustomNearest(
-                    model: _controller.listNearest[index],
-                    height: constraints.maxHeight,
-                    width: constraints.maxWidth,
-                  );
-                });
-              }),
-            ),
           ],
         ),
       ),

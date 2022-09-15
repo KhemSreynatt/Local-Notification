@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:masmas_food_delivery/module/home/cart.dart';
-import 'package:masmas_food_delivery/module/home/chat.dart';
-import 'package:masmas_food_delivery/module/home_screen.dart';
+import 'package:masmas_food_delivery/module/home/screen/cart.dart';
+import 'package:masmas_food_delivery/module/home/screen/chat.dart';
+import 'package:masmas_food_delivery/module/home/screen/home_screen.dart';
 import 'package:masmas_food_delivery/module/profile/page/profile.dart';
 
 class MyNavbar extends StatefulWidget {

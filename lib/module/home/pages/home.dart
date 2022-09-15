@@ -1,10 +1,8 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-import '../../../config/routes.gr.dart';
 import '../../../utils/helper/notification_helper.dart';
 
 class HomePage extends StatefulWidget {
@@ -54,7 +52,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             ElevatedButton(
               onPressed: () {
-                context.pushRoute(ProfileRoute(name: 'Sreynatt', sex: 'Femal'));
+                // context.pushRoute(ProfileRoute(name: 'Sreynatt', sex: 'Femal'));
                 //throw Exception();
               },
               child: const Text("Profile Page"),

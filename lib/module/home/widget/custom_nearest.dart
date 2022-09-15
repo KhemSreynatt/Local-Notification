@@ -13,6 +13,7 @@ class CustomNearest extends StatelessWidget {
     return Container(
       height: height,
       width: width,
+      padding: const EdgeInsets.only(top: 20),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(22),
@@ -45,6 +46,9 @@ class CustomNearest extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
+          ),
+          const SizedBox(
+            height: 15,
           ),
           Text(
             model!.mins!,

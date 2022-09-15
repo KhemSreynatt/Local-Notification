@@ -41,7 +41,7 @@ class _CustomButtonState extends State<CustomButton> {
             width: double.infinity,
             child: CupertinoButton(
               borderRadius: const BorderRadius.all(
-                Radius.circular(24),
+                Radius.circular(15),
               ),
               padding: const EdgeInsets.symmetric(vertical: 15.0),
               color: widget.color,
@@ -60,7 +60,7 @@ class _CustomButtonState extends State<CustomButton> {
                 child: !widget.isDisable! && !widget.isOutline!
                     ? CupertinoButton(
                         borderRadius:
-                            const BorderRadius.all(Radius.circular(24)),
+                            const BorderRadius.all(Radius.circular(15)),
                         padding: const EdgeInsets.symmetric(vertical: 15.0),
                         color: widget.color,
                         onPressed: widget.onPressed,
@@ -108,7 +108,7 @@ class _CustomButtonState extends State<CustomButton> {
                             ? CupertinoButton(
                                 onPressed: null,
                                 borderRadius:
-                                    const BorderRadius.all(Radius.circular(24)),
+                                    const BorderRadius.all(Radius.circular(15)),
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 15.0),
                                 child: Text(widget.title!,
@@ -125,7 +125,7 @@ class _CustomButtonState extends State<CustomButton> {
                                   )
                                 : CupertinoButton(
                                     borderRadius: const BorderRadius.all(
-                                        Radius.circular(24)),
+                                        Radius.circular(15)),
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 15.0),
                                     color: widget.color,
@@ -161,7 +161,7 @@ class _CustomButtonState extends State<CustomButton> {
                     child: !widget.isDisable! && !widget.isOutline!
                         ? CupertinoButton(
                             borderRadius:
-                                const BorderRadius.all(Radius.circular(24)),
+                                const BorderRadius.all(Radius.circular(15)),
                             // padding: const EdgeInsets.symmetric(horizontal: 0),
                             color: widget.color,
                             onPressed: widget.onPressed,
@@ -195,7 +195,7 @@ class _CustomButtonState extends State<CustomButton> {
                                       border: Border.all(
                                           color:
                                               Theme.of(context).primaryColor),
-                                      borderRadius: BorderRadius.circular(24)),
+                                      borderRadius: BorderRadius.circular(15)),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
@@ -224,7 +224,7 @@ class _CustomButtonState extends State<CustomButton> {
                             : widget.isDisable! && !widget.isOutline!
                                 ? CupertinoButton(
                                     borderRadius: const BorderRadius.all(
-                                        Radius.circular(24)),
+                                        Radius.circular(15)),
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 0),
                                     color: widget.color,
@@ -237,7 +237,7 @@ class _CustomButtonState extends State<CustomButton> {
                                   )
                                 : CupertinoButton(
                                     borderRadius: const BorderRadius.all(
-                                        Radius.circular(24)),
+                                        Radius.circular(15)),
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 0),
                                     color: widget.color,
