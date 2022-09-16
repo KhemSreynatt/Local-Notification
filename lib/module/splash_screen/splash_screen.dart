@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        context.go('/onbording');
+        context.go('/homepage');
       },
     );
     return Scaffold(

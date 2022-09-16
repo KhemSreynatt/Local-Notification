@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../splash_screen/onbording.dart';
+import '../../log/screen/signup_screen.dart';
 
 class ScreenAnimation extends StatefulWidget {
   const ScreenAnimation({Key? key}) : super(key: key);
@@ -15,8 +15,10 @@ class _ScreenAnimationState extends State<ScreenAnimation> {
 
   void _addItem() {
     _item.insert(0, "I Love U ${_item.length + 1}");
-    _key.currentState!
-        .insertItem(0, duration: const Duration(microseconds: 10));
+    _key.currentState!.insertItem(
+      0,
+      duration: const Duration(microseconds: 10),
+    );
   }
 
   void _removeItem(int index) {
@@ -50,6 +52,15 @@ class _ScreenAnimationState extends State<ScreenAnimation> {
         child: Column(children: [
           const SizedBox(
             height: 100,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SignupScreen()));
+            },
+            child: const Text("onbording"),
           ),
           GestureDetector(
             onTap: _addItem,
@@ -94,15 +105,6 @@ class _ScreenAnimationState extends State<ScreenAnimation> {
               },
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const OnbordingScreen()));
-            },
-            child: const Text("onbording"),
-          )
         ]),
       ),
     );

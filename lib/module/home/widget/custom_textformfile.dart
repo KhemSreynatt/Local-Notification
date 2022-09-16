@@ -75,93 +75,66 @@ class CustomTextFiled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 10),
-        Column(
-          children: [
-            TextFormField(
-              obscureText: isObscureText!,
-              maxLength: maxlenght,
-              controller: controller,
-              initialValue: controller == null ? initialValues : null,
-              onSaved: onSave,
-              autocorrect: true,
-              autofocus: autoFocus ?? false,
-              showCursor: true,
-              onFieldSubmitted: onSubmit,
-              onChanged: onChanges,
-              inputFormatters: inputFormatters,
-              style: style,
-              textInputAction: textInputAction ?? TextInputAction.done,
-              autovalidateMode: AutovalidateMode.always,
-              enabled: enable,
-              keyboardType: keyboardType,
-              onTap: () {},
-              readOnly: isReadOnly ?? false,
-              decoration: InputDecoration(
-                  counterText: '',
-                  alignLabelWithHint: true,
-                  suffixIcon: suffixIcon,
-                  prefixIcon: prifixIcon,
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  hintText: hintText,
-                  hintStyle: hintTextStyle,
-                  fillColor: initialValues == '' ||
-                          enable == false ||
-                          isReadOnly == true
-                      ? const Color(0xffF9A84D).withOpacity(0.1)
-                      : const Color(0xffF9A84D).withOpacity(0.1),
-                  filled: true,
-                  hintMaxLines: 100,
-                  labelStyle: const TextStyle(color: Colors.black),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: isValidate == false
-                            ? const Color(0xffF9A84D).withOpacity(0)
-                            : Colors.red),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  errorBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red),
-                  ),
-                  enabledBorder: isValidate == false
-                      ? OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.transparent),
-                          borderRadius: BorderRadius.circular(10),
-                        )
-                      : OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(color: Colors.red)),
-                  disabledBorder: OutlineInputBorder(
+    return SizedBox(
+      child: TextFormField(
+        obscureText: isObscureText!,
+        maxLength: maxlenght,
+        controller: controller,
+        initialValue: controller == null ? initialValues : null,
+        onSaved: onSave,
+        autocorrect: true,
+        autofocus: autoFocus ?? false,
+        showCursor: true,
+        onFieldSubmitted: onSubmit,
+        onChanged: onChanges,
+        inputFormatters: inputFormatters,
+        style: style,
+        textInputAction: textInputAction ?? TextInputAction.done,
+        autovalidateMode: AutovalidateMode.always,
+        enabled: enable,
+        keyboardType: keyboardType,
+        onTap: () {},
+        readOnly: isReadOnly ?? false,
+        decoration: InputDecoration(
+            counterText: '',
+            alignLabelWithHint: true,
+            suffixIcon: suffixIcon,
+            prefixIcon: prifixIcon,
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            hintText: hintText,
+            hintStyle: hintTextStyle,
+            fillColor:
+                initialValues == '' || enable == false || isReadOnly == true
+                    ? const Color(0xffF9A84D).withOpacity(0.1)
+                    : const Color(0xffF9A84D).withOpacity(0.1),
+            filled: true,
+            hintMaxLines: 100,
+            labelStyle: const TextStyle(color: Colors.black),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: isValidate == false
+                      ? const Color(0xffF9A84D).withOpacity(0)
+                      : Colors.red),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            errorBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red),
+            ),
+            enabledBorder: isValidate == false
+                ? OutlineInputBorder(
                     borderSide: const BorderSide(color: Colors.transparent),
                     borderRadius: BorderRadius.circular(10),
-                  )),
-            ),
-            const SizedBox(height: 10),
-            isValidate!
-                ? Row(
-                    children: const [
-                      // const Icon(
-                      //   Icons.error,
-                      //   color: Colors.red,
-                      //   size: 18,
-                      // ),
-
-                      Text(
-                        "your password is not enought",
-                        style: TextStyle(color: Colors.red, fontSize: 14),
-                      ),
-                    ],
                   )
-                : Container(),
-          ],
-        ),
-      ],
+                : OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(color: Colors.red),
+                  ),
+            disabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.transparent),
+              borderRadius: BorderRadius.circular(10),
+            )),
+      ),
     );
   }
 }

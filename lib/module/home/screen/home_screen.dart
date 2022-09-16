@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:masmas_food_delivery/module/home/animation/filter.dart';
 import 'package:masmas_food_delivery/module/home/controller/controller.dart';
 import 'package:masmas_food_delivery/module/home/screen/popular_res.dart';
 import 'package:masmas_food_delivery/module/home/widget/custom_bottomnavigertor.dart';
@@ -39,9 +40,11 @@ class HomeScreen extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const NotificationScreen()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationScreen(),
+                      ),
+                    );
                   },
                   child: Container(
                     height: 45,
@@ -70,9 +73,11 @@ class HomeScreen extends StatelessWidget {
               height: 10,
             ),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
-                  width: 276,
+                  width: 280,
                   child: CustomTextFiled(
                     prifixIcon: Image.asset("assets/png/Icon_Search.png"),
                     initialValues: "",
@@ -86,16 +91,24 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffF9A84D).withOpacity(0.1),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(15),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FilterScreen()));
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffF9A84D).withOpacity(0.1),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(15),
+                      ),
                     ),
+                    child: Image.asset("assets/png/Filter.png"),
                   ),
-                  child: Image.asset("assets/png/Filter.png"),
                 ),
               ],
             ),
