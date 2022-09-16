@@ -97,14 +97,14 @@ class OrderDetails extends StatelessWidget {
                     ),
                   ],
                 ),
-              ), 
+              ),
             ),
             const CustomCardMyOrder(),
             const SizedBox(
               height: 30,
             ),
           ],
-        ),   
+        ),
       ),
     );
   }

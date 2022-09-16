@@ -10,7 +10,7 @@ class ConfirmOrder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final orderController = Get.put(OrderController());
+    final orderconfirmController = Get.put(OrderController());
 
     return Scaffold(
       body: Padding(

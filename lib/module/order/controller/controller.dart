@@ -4,6 +4,7 @@ import '../../../widgets/custom_card.dart';
 
 class OrderController extends GetxController {
   var isClick = 0.obs;
+  var isProcess = true;
 
   List<CardModel> cardList = [
     CardModel(

@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:masmas_food_delivery/module/home/widget/custom_botton.dart';
-import 'package:masmas_food_delivery/module/order/screen/confirm_order.dart';
+import 'package:masmas_food_delivery/module/order/screen/checkout.dart';
 
 class CustomCard extends StatelessWidget {
   final CardModel? cardModel;
+  final bool? isProccess;
 
   const CustomCard({
     super.key,
     this.cardModel,
+    this.isProccess = false,
   });
 
   @override
@@ -72,41 +74,67 @@ class CustomCard extends StatelessWidget {
                     const SizedBox(
                       width: 80,
                     ),
-                    Container(
-                      height: 26,
-                      width: 95,
-                      color: Colors.transparent,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 26,
-                            width: 26,
+                    isProccess == true
+                        ? Container(
+                            height: 30,
+                            width: 80,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: const Color(0xff15BE77).withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(17.5),
+                              color: const Color(0xff53E88B),
                             ),
-                            child: const Icon(Icons.remove),
-                          ),
-                          Text(
-                            "1",
-                            style: GoogleFonts.poppins(
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400),
-                          ),
-                          Container(
-                              height: 26,
-                              width: 26,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                color: const Color(0xff53E88B),
+                            child: Center(
+                              child: Text(
+                                'Proccess',
+                                style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400),
                               ),
-                              child: const Icon(Icons.remove)),
-                        ],
-                      ),
-                    ),
+                            ),
+                          )
+                        : Container(
+                            height: 26,
+                            width: 95,
+                            color: Colors.transparent,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  height: 26,
+                                  width: 26,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: const Color(0xff15BE77)
+                                        .withOpacity(0.1),
+                                  ),
+                                  child: const Icon(
+                                    Icons.remove,
+                                    color: Color(0xff15BE77),
+                                  ),
+                                ),
+                                Text(
+                                  "1",
+                                  style: GoogleFonts.poppins(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                Container(
+                                  height: 26,
+                                  width: 26,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: const Color(0xff53E88B),
+                                  ),
+                                  child: const Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                   ],
                 ),
                 Text(
@@ -238,7 +266,7 @@ class CustomCardMyOrder extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ConfirmOrder(),
+                      builder: (context) => const CheckOutScreen(),
                     ));
               },
               title: 'Place My Order',
